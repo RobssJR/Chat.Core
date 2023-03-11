@@ -12,7 +12,6 @@ namespace Database.Service
         public BaseRepository(string collectionName)
         {
             DatabaseInstance databaseInstance = DatabaseInstance.GetInstance();
-            databaseInstance.x = 10;
             _collection = databaseInstance.database.GetCollection<T>(collectionName);
         }
 

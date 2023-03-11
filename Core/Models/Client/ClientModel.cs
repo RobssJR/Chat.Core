@@ -1,6 +1,8 @@
-﻿namespace Core.Models.Client
+﻿using Database.Models;
+
+namespace Core.Models.Client
 {
-    public class ClientModel
+    public class ClientModel : BaseEntity
     {
         public string Name { get; set; }
         public string Id { get; set; }

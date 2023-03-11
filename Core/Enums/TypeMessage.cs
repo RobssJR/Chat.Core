@@ -3,7 +3,10 @@
     public enum TypeMessage
     {
         Login,
+        Register,
         SendMessage,
-        ReceiveMessage
+        ReceiveMessage,
+        GetChats,
+        GetMessages
     }
 }
