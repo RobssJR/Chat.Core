@@ -1,6 +1,6 @@
 ﻿using LiteDB;
 
-namespace Database.Models
+namespace Core.Infra.Models
 {
     public class BaseEntity
     {

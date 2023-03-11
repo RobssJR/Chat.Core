@@ -1,6 +1,4 @@
-﻿using Database.Models;
-
-namespace Core.Models.Geral.Chat
+﻿namespace Core.Infra.Models.Chat
 {
     public class ChatModel : BaseEntity
     {

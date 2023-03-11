@@ -1,10 +1,10 @@
-﻿using Database.Infra;
-using Database.Interfaces;
-using Database.Models;
+﻿using Core.Infra.Interface;
+using Core.Infra.Models;
+using Database.Infra;
 using LiteDB;
 using System.Linq.Expressions;
 
-namespace Database.Service
+namespace Core.Infra
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
     {
@@ -15,9 +15,9 @@ namespace Database.Service
             _collection = databaseInstance.database.GetCollection<T>(collectionName);
         }
 
-        public List<T> Query(Expression<Func<T, bool>> expression) 
+        public List<T> Query(Expression<Func<T, bool>> expression)
         {
-            return _collection.Query().Where(expression).ToList(); 
+            return _collection.Query().Where(expression).ToList();
         }
 
         public T FindById(int id)

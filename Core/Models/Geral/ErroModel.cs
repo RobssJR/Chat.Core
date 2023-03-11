@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Models.Geral.Chat
+namespace Core.Models.Geral
 {
-    internal class MessageModel
+    public class ErroModel
     {
+        public string Message { get; set; }
     }
 }

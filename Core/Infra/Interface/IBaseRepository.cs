@@ -1,8 +1,8 @@
-﻿using Database.Models;
+﻿using Core.Infra.Models;
 using LiteDB;
 using System.Linq.Expressions;
 
-namespace Database.Interfaces
+namespace Core.Infra.Interface
 {
     public interface IBaseRepository<T> where T : BaseEntity
     {

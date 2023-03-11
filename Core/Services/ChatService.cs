@@ -1,15 +1,13 @@
-﻿using Core.Models.Geral;
-using Database.Models;
-using Database.Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Core.Infra;
+using Core.Infra.Models.Chat;
+using Core.Infra.Models.Client;
 
 namespace Core.Services
 {
     public class ChatService : BaseRepository<ChatModel>
     {
+        public ChatService(string collectionName) : base(collectionName)
+        {
+        }  
     }
 }

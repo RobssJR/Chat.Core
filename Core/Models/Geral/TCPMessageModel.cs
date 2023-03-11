@@ -1,4 +1,5 @@
 ﻿using System;
+using Core.Enums;
 using Core.Models.Geral;
 
 namespace Core.Models
@@ -6,6 +7,7 @@ namespace Core.Models
     public class TCPMessageModel<T>
     {
         public DateTime Time { get; set; }
-        public MessageObjectModel<T> ObjectMessage { get; set; }
+        public T Message { get; set; }
+        public TypeMessage Type { get; set; }
     }
 }

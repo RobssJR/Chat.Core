@@ -7,6 +7,7 @@
         SendMessage,
         ReceiveMessage,
         GetChats,
-        GetMessages
+        GetMessages,
+        Erro
     }
 }

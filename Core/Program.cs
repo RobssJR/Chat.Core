@@ -1,4 +1,6 @@
-﻿namespace ChatAPS.Core
+﻿using Core.Services;
+
+namespace ChatAPS.Core
 {
     public class Program
     {
