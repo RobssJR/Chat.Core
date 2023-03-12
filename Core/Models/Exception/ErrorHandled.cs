@@ -4,7 +4,7 @@
     {
         public string Message { get; set; }
 
-        public ErrorHandled(string message) 
+        public ErrorHandled(string message)
         {
             Message = message;
         }

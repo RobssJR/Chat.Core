@@ -5,7 +5,7 @@ namespace Database.Infra
     public sealed class DatabaseInstance
     {
         private static DatabaseInstance _instance;
-        private const string PATH = @".\MyData.db";
+        private const string PATH = @"C:\Db\MyData.db";
         public LiteDatabase database;
 
         private DatabaseInstance() 
