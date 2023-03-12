@@ -1,4 +1,6 @@
-﻿using Core.Models.Server;
+﻿using Core.Models;
+using Core.Models.Server;
+using Core.Services;
 using SuperSimpleTcp;
 
 namespace Core.Instances
@@ -16,6 +18,11 @@ namespace Core.Instances
         public void Start()
         {
             server.Start();
+        }
+        public void Send<T>(string IpPort, TCPMessageModel<T> message)
+        {
+            string messageJson = Util.JsonUtil.ConvertToJson(message);
+            _serverInstance.server.Send(IpPort, messageJson);
         }
 
         public void Configure(ConfigureServerModel configure)
