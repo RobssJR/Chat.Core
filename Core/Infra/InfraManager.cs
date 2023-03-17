@@ -6,6 +6,7 @@ namespace Core.Infra
     {
         private static InfraManager _instance;
         public ClientService _clientService = new ClientService("clientes");
+        public ChatService _chatService = new ChatService("chats");
 
         private InfraManager() { }
 

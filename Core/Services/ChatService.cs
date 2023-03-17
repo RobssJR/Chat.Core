@@ -8,6 +8,12 @@ namespace Core.Services
     {
         public ChatService(string collectionName) : base(collectionName)
         {
-        }  
+        }
+
+        public List<ChatModel> GetChatsByUser(ClientModel user)
+        {
+            List<ChatModel> chats = Query(chat => chat.Users.Contains(user)).ToList();
+            return chats;
+        }
     }
 }
