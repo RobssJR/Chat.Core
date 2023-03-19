@@ -1,4 +1,6 @@
-﻿using Core.Models.Client;
+﻿using Core.Models;
+using Core.Models.Client;
+using Core.Services;
 using SuperSimpleTcp;
 
 namespace Core.Instances
@@ -19,15 +21,20 @@ namespace Core.Instances
             {
                 client.Connect();
             } catch
-            {
-                throw;
-            }
+            { }
         }
 
         public void Configure(ConfigureClientModel configure)
         {
             client.Events.DataSent += configure.dataSentEvent;
             client.Events.DataReceived += configure.dataReceivedEvent;
+        }
+
+        public void Send<T>(TCPMessageModel<T> messageObj)
+        {
+            string messsageJson = Util.JsonUtil.ConvertToJson(messageObj);
+
+            _clientInstance.client.Send(messsageJson);
         }
 
         public static ClientInstance GetInstance()

@@ -1,5 +1,6 @@
 ﻿using Core.Infra;
 using Core.Infra.Models.Client;
+using Core.Models.Exception;
 
 namespace Core.Services
 {
@@ -11,6 +12,36 @@ namespace Core.Services
         public List<ClientModel> GetClieteByName(string name)
         {
             return Query(x => x.Name == name);
+        }
+
+        public void UserRegister(ClientModel client)
+        {
+            try
+            {
+                List<ClientModel> clients = GetClieteByName(client.Name);
+
+                if (clients.Count > 0)
+                    throw new ErrorHandled("Falha no cadastro, cadastro já existente");
+
+               Add(client);
+            }
+            catch { throw; }
+        }
+
+        public ClientModel UserLogin(ClientModel client)
+        {
+            try
+            {
+                List<ClientModel> clients = Query(x =>
+                    x.Email.ToLower() == client.Email.ToLower() &&
+                    x.Password.ToLower() == client.Password.ToLower()).ToList();
+
+                if (clients.Count <= 0)
+                    throw new ErrorHandled("Login ou senha incorretos");
+
+                return clients.First();
+            }
+            catch { throw; }
         }
     }
 }

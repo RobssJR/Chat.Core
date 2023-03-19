@@ -27,6 +27,7 @@ namespace Core.Infra
 
         public void Add(T entity)
         {
+            entity.Id = ObjectId.NewObjectId().ToString();
             _collection.Insert(entity);
         }
 

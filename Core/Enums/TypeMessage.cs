@@ -8,6 +8,7 @@
         ReceiveMessage,
         GetChats,
         GetMessages,
-        Erro
+        Erro,
+        CreateChat
     }
 }
