@@ -12,13 +12,21 @@ namespace Core.Services
 
         public List<ChatModel> GetChatsByUser(ClientModel user)
         {
-            var x = GetAll();
-
             return Query(
                 chat => chat.Users
                 .Select(userChat => userChat.Id)
                 .Any(id => id.Equals(user.Id)))
                 .ToList();
+        }
+
+        public ChatModel GetChatById(string chatId)
+        {
+            List<ChatModel> chats = Query(chat => chat.Id == chatId).ToList();
+
+            if (chats.Count == 0)
+                return null;
+
+            return chats.First();
         }
     }
 }

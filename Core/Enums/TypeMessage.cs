@@ -9,6 +9,9 @@
         GetChats,
         GetMessages,
         Erro,
-        CreateChat
+        CreateChat,
+        AddUserChat,
+        RefreshChat,
+        GetChat
     }
 }

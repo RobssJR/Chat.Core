@@ -36,12 +36,22 @@ namespace Core.Services
                     x.Email.ToLower() == client.Email.ToLower() &&
                     x.Password.ToLower() == client.Password.ToLower()).ToList();
 
-                if (clients.Count <= 0)
+                if (clients == null || clients.Count <= 0)
                     throw new ErrorHandled("Login ou senha incorretos");
 
                 return clients.First();
             }
             catch { throw; }
+        }
+
+        public ClientModel GetClientByEmail(string email)
+        {
+            ClientModel client = Query(client => client.Email == email).First();
+
+            if (client == null)
+                throw new ErrorHandled("Usuário não encontrado");
+
+            return client;
         }
     }
 }
