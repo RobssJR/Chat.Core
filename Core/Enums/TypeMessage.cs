@@ -11,6 +11,7 @@
         Erro,
         CreateChat,
         AddUserChat,
+        UpdateChat,
         RefreshChat,
         GetChat
     }
