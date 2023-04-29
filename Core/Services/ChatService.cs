@@ -1,6 +1,7 @@
 ﻿using Core.Infra;
 using Core.Infra.Models.Chat;
 using Core.Infra.Models.Client;
+using Core.Models.Exception;
 
 namespace Core.Services
 {
@@ -24,9 +25,17 @@ namespace Core.Services
             List<ChatModel> chats = Query(chat => chat.Id == chatId).ToList();
 
             if (chats.Count == 0)
-                return null;
+                throw new ErrorHandled("Não foi posisvel encontrar nenhum chat");
 
             return chats.First();
+        }
+
+        public void AddChat(ChatModel chat)
+        {
+            if (Query(x => x.Name == chat.Name).FirstOrDefault() != null)
+                throw new ErrorHandled("Erro, chat já criado");
+
+            Add(chat);
         }
     }
 }
